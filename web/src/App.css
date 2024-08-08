@@ -45,24 +45,28 @@
 }
 
 /* chat css*/
-.chatbox{
-  flex:1;
+.chatbox {
+  flex: 1;
   background-color: #353541;
-  position: relative;
   overflow-y: auto;
+  padding-bottom: 80px; /* Espaço reservado para a caixa de entrada */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
-.chat-input-holder{
-  padding: 24px;
-  position: absolute;
+/* Caixa de entrada fixada na parte inferior */
+.chat-input-holder {
+  padding: 12px;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: #353541; /* Cor de fundo igual ao da chatbox */
 }
 
-.chat-input-textarea{
+/* Estilo da área de texto da entrada */
+.chat-input-textarea {
   background-color: #40414f;
-  width: 90%;
+  width: calc(100% - 24px); /* Reduz a largura para deixar espaço para bordas e padding */
   padding: 12px;
   color: white;
   font-size: 1.5em;
@@ -70,45 +74,50 @@
   border: none;
   margin: 12px;
   outline: none;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0.25);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
   resize: none;
 }
 
-.chat-log{
+/* Estilo das mensagens */
+.chat-log {
   text-align: left;
-  white-space: "pre-wrap";
+  white-space: pre-wrap;
 }
 
-.chat-message.chatgpt{
+.chat-message.chatgpt {
   background-color: #444654;
 }
 
-.chat-message-center{
-  max-width: 640px;
+.chat-message-center {
+  max-width: 100%;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-
+  flex-direction: column;
   padding: 12px;
-
   padding-left: 24px;
   padding-right: 24px;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  }
+
+.message {
+  padding: 10px; /* Ajuste o padding para evitar sobreposição */
+  margin-bottom: 10px; /* Adicione espaço entre mensagens */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
-.message{
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.avatar{
+/* Estilo do avatar */
+.avatar {
   background-color: white;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-
 }
 
-.avatar.chatgpt{
+.avatar.chatgpt {
   background: #0da37f;
   border-radius: 50%;
   width: 40px;

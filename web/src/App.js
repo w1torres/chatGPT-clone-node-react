@@ -18,7 +18,7 @@ const[chatLog, setChatlog] =useState([{
 
 async function handleSubmit(e){
   e.preventDefault()
-  console.log('Response:')
+  
   let response = await makeRequest({prompt: input})
  
   response = response.data.split('\n')
