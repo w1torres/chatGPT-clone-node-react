@@ -1,0 +1,20 @@
+app.get('/check-connectivity', async (req, res) => {
+  try {
+    const response = await axios.get('https://api.openai.com/v1/engines', {
+      headers: {
+        'Authorization': `Bearer ${configuration.apiKey}`
+      }
+    });
+    return res.status(200).json({
+      success: true,
+      message: 'Connection successful',
+      data: response.data
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Connection failed',
+      error: error.response ? error.response.data : "There was an issue with the connection"
+    });
+  }
+});
